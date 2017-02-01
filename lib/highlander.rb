@@ -10,7 +10,7 @@ BEGIN{
     status = DATA.flock(File::LOCK_EX | File::LOCK_NB)
 
     if status != 0
-      raise RuntimeError, "Program '#{program}' already running"
+      raise RuntimeError, "There can be only one! Program '#{program}' already running"
       exit! # In case of rescue, forcibly bail
     end
   end
